@@ -1,0 +1,65 @@
+{
+	"ABI version": 2,
+	"version": "2.1",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "createCat",
+			"inputs": [
+				{"name":"name","type":"string"},
+				{"name":"age","type":"uint8"},
+				{"name":"lives","type":"uint8"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "sell",
+			"inputs": [
+				{"name":"catId","type":"uint256"},
+				{"name":"value","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "getCatInfo",
+			"inputs": [
+				{"name":"catId","type":"uint256"}
+			],
+			"outputs": [
+				{"name":"cost","type":"uint256"},
+				{"name":"forSale","type":"bool"},
+				{"name":"name","type":"string"},
+				{"name":"age","type":"uint8"},
+				{"name":"lives","type":"uint8"}
+			]
+		},
+		{
+			"name": "getCatArr",
+			"inputs": [
+			],
+			"outputs": [
+				{"components":[{"name":"name","type":"string"},{"name":"age","type":"uint8"},{"name":"lives","type":"uint8"}],"name":"value0","type":"tuple[]"}
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"components":[{"name":"name","type":"string"},{"name":"age","type":"uint8"},{"name":"lives","type":"uint8"}],"name":"catArr","type":"tuple[]"},
+		{"name":"catToOwner","type":"map(uint256,uint256[])"}
+	]
+}
