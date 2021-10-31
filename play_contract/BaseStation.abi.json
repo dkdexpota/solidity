@@ -29,7 +29,8 @@
 		{
 			"name": "removeUnit",
 			"inputs": [
-				{"name":"unit","type":"address"}
+				{"name":"unit","type":"address"},
+				{"name":"dest","type":"address"}
 			],
 			"outputs": [
 			]
@@ -61,7 +62,8 @@
 		{
 			"name": "acceptAttack",
 			"inputs": [
-				{"name":"power","type":"uint8"}
+				{"name":"power","type":"uint8"},
+				{"name":"dest","type":"address"}
 			],
 			"outputs": [
 			]

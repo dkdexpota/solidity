@@ -8,5 +8,5 @@ pragma AbiHeader expire;
 
 // This is class that describes you smart contract.
 interface GameObjInterface {
-    function acceptAttack(uint8 power) external;
+    function acceptAttack(uint8 power, address dest) external;
 }

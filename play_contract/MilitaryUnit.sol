@@ -22,20 +22,17 @@ contract MilitaryUnit is GameObj {
 
     function attack(address enemy) virtual public {
         tvm.accept();
-        GameObjInterface(enemy).acceptAttack(power);
+        GameObjInterface enemyObj = GameObjInterface(enemy);
+        enemyObj.acceptAttack(power, address(this));
     }
 
     function death(address dest) public virtual override{
         if(isDead()){
-            AddUnit(baseAddress).removeUnit(address(this));
-            sendAll(dest);
+            AddUnit(baseAddress).removeUnit(address(this), dest);
         }
     }
     function getPower() public view returns(uint8) {
         return power;
     }
 
-    function getDefencePoins() public view returns(uint8){
-        return defencePoins;
-    }
 }

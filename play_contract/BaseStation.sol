@@ -14,7 +14,7 @@ contract BaseStation is GameObj, AddUnit {
     address[] private unitList;
     constructor() public {
         tvm.accept();
-        defencePoins = 31;
+        defencePoins = 9;
         baseAddress = address(msg.pubkey());
     }
 
@@ -26,13 +26,13 @@ contract BaseStation is GameObj, AddUnit {
     function death(address dest) public virtual override{
         if(GameObj.isDead()){
             for (address unit: unitList) {
-                MilitaryUnit(unit).sendAll(this);
+                MilitaryUnit(unit).sendAll(dest);
             }
             sendAll(dest);
         }
     }
 
-    function removeUnit(address unit) public override {
+    function removeUnit(address unit, address dest) public override {
         tvm.accept();
         bool check = false;
         for (uint i = 0; i < unitList.length-1; i++){
@@ -44,10 +44,9 @@ contract BaseStation is GameObj, AddUnit {
             }
         }
         if (check||unitList[unitList.length-1]==unit) {
-            address send = address(this);
             unitList.pop();
             MilitaryUnit arch = MilitaryUnit(unit);
-            arch.sendAll(send);
+            arch.sendAll(dest);
         }
     }
 

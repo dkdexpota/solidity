@@ -8,5 +8,5 @@ pragma AbiHeader expire;
 import 'MilitaryUnit.sol';
 // This is class that describes you smart contract.
 contract Archer is MilitaryUnit{
-    constructor(AddUnit base) MilitaryUnit(base, 42, 5) public{}
+    constructor(AddUnit base) MilitaryUnit(base, 9, 6) public{}
 }

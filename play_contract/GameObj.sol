@@ -10,7 +10,7 @@ contract GameObj is GameObjInterface{
     uint8 defencePoins;
     address baseAddress;
 
-    function getDefend() public returns(uint) {
+    function getDefencePoins() public view returns(uint) {
         return defencePoins;
     }
 
@@ -24,14 +24,14 @@ contract GameObj is GameObjInterface{
 
     function death(address dest) virtual public {}
 
-    function acceptAttack(uint8 power) virtual public override {
+    function acceptAttack(uint8 power, address dest) public override {
         tvm.accept();
-        if (defencePoins - power > 0) {
-            defencePoins-=power;
-        } else {
+        if (defencePoins<power) {
             defencePoins = 0;
+            death(dest);
+        } else {
+            defencePoins-=power;
         }
-        this.death(address(msg.pubkey()));
     }
 
     modifier onlyOwnerOrFighter {
