@@ -14,7 +14,7 @@ contract BaseStation is GameObj, AddUnit {
     address[] private unitList;
     constructor() public {
         tvm.accept();
-        defencePoins = 9;
+        defencePoins = 8;
         baseAddress = address(msg.pubkey());
     }
 
@@ -33,6 +33,7 @@ contract BaseStation is GameObj, AddUnit {
     }
 
     function removeUnit(address unit, address dest) public override {
+        //require(msg.pubkey() == tvm.pubkey() || MilitaryUnit(unit).getDefencePoins() == 0);
         tvm.accept();
         bool check = false;
         for (uint i = 0; i < unitList.length-1; i++){

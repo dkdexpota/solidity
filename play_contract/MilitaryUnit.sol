@@ -21,6 +21,7 @@ contract MilitaryUnit is GameObj {
     }
 
     function attack(address enemy) virtual public {
+        require(msg.pubkey() == tvm.pubkey(), 100);
         tvm.accept();
         GameObjInterface enemyObj = GameObjInterface(enemy);
         enemyObj.acceptAttack(power, address(this));
@@ -31,6 +32,7 @@ contract MilitaryUnit is GameObj {
             AddUnit(baseAddress).removeUnit(address(this), dest);
         }
     }
+    
     function getPower() public view returns(uint8) {
         return power;
     }

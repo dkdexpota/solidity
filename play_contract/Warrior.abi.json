@@ -44,14 +44,6 @@
 			]
 		},
 		{
-			"name": "getDefend",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"value0","type":"uint256"}
-			]
-		},
-		{
 			"name": "isDead",
 			"inputs": [
 			],
@@ -62,7 +54,8 @@
 		{
 			"name": "acceptAttack",
 			"inputs": [
-				{"name":"power","type":"uint8"}
+				{"name":"power","type":"uint8"},
+				{"name":"dest","type":"address"}
 			],
 			"outputs": [
 			]

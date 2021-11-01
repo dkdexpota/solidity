@@ -10,7 +10,7 @@ contract GameObj is GameObjInterface{
     uint8 defencePoins;
     address baseAddress;
 
-    function getDefencePoins() public view returns(uint) {
+    function getDefencePoins() public view returns(uint8) {
         return defencePoins;
     }
 
@@ -26,7 +26,7 @@ contract GameObj is GameObjInterface{
 
     function acceptAttack(uint8 power, address dest) public override {
         tvm.accept();
-        if (defencePoins<power) {
+        if (defencePoins<=power) {
             defencePoins = 0;
             death(dest);
         } else {

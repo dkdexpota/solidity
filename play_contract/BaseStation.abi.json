@@ -44,11 +44,11 @@
 			]
 		},
 		{
-			"name": "getDefend",
+			"name": "getDefencePoins",
 			"inputs": [
 			],
 			"outputs": [
-				{"name":"value0","type":"uint256"}
+				{"name":"value0","type":"uint8"}
 			]
 		},
 		{
